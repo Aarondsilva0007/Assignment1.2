@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JScript</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        
+        <style>
+            *{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    height:33.33% ;
+    padding:30px;
+    background-color: #f9f9f9;
+    border-bottom: 2px solid gray;
+}
+input[type=text]:focus {
+    border: 3px solid #555;
+    width: 55%;
+}
+input[type=text],[type=number]{
+    width: 50%;
+    height: 35px;
+    text-align: center;
+}
+.container{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+input[type=button]{
+    padding: 5px;
+    font-size: 15px;
+}
+.Gallery{
+    display: flex;
+    flex-direction: row;
+}
+.gallery{
+    width:300px;
+    height: 250px;
+    border: 2px solid gray;
+    box-shadow: 0 0 10px gray;
+}
+        </style>
+        <script>
+            var start=1;
+            function Validate()
+            {   var email=numb.value;
+                const regex=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if(regex.test(email)==true){
+                    
+                    document.getElementById('numb').style.backgroundColor="green";
+                }
+                else{
+                    document.getElementById('numb').style.backgroundColor="red";
+                }
+                
+            }
+            function add(){
+            fst=parseInt(myform.fst.value);
+            snd=parseInt(myform.snd.value);
+            result=fst+snd;
+            myform.result.value=result;
+            }
+
+            function subtract() {
+            fst=parseInt(myform.fst.value);
+            snd=parseInt(myform.snd.value);
+            result=fst-snd;
+            myform.result.value=result;
+            }
+
+            function multiply(){
+            fst=parseInt(myform.fst.value);
+            snd=parseInt(myform.snd.value);
+            result=fst*snd;
+            myform.result.value=result;
+            }
+            function divide(){
+            fst=parseInt(myform.fst.value);
+            snd=parseInt(myform.snd.value);
+            result=fst/snd;
+            myform.result.value=result;
+            }
+            function set_time(){
+                var interval=parseInt(document.getElementById('time').value);
+                setInterval(slideshow,interval);
+            }
+            
+            function slideshow(){
+                var image;
+                if(start==1){
+                    image="D:/javascript/img/img1.jpg";
+                }
+                
+                else if(start==2){
+                    image="D:/javascript/img/img02.jpg";
+                }
+                
+                else if(start==3){
+                    image="D:/javascript/img/img03.jpg";
+                }
+                
+                else if(start==4){
+                    image="D:/javascript/img/img04.jpg";
+                }
+                
+                else if(start==5){
+                    image="D:/javascript/img/img05.jpg";
+                }
+                
+                else if(start==6){
+                    image="D:/javascript/img/img06.jpg";
+                }
+                
+                else if(start==7){
+                    image="D:/javascript/img/img07.jpg";
+                }
+                
+                else if(start==8){
+                    image="D:/javascript/img/img08.jpg";
+                }
+                
+                else if(start==9){
+                    image="D:/javascript/img/img09.jpg";
+                }
+                
+                else if(start==10){
+                    image="D:/javascript/img/img10.jpg";
+                }
+                else{
+                    start=1;
+                    image="D:/javascript/img/img1.jpg"
+                }
+                document.getElementById('pic').src=""+image;
+                start++;
+            }
+        </script>
+        
+    </head>
+    <body>
+        <div class="container"style="background-color:Azure;">
+            <div class="Gallery">
+                <div class="input">
+                    <h4>Enter Time Interval</h4>(in ms)<br><br>
+                    <input type="text" name="time" id="time"><br><br>
+                    <input type="button" value="Start" onclick="set_time()">
+                </div>
+                <div class="gallery">
+                    <img src="img/1.jpg" width="300px" height="250px" id="pic"></img>
+                </div>
+            </div>
+            
+        </div>
+        <div class="container"style="background-color:Azure;">
+            <div class="calc">
+                <br><h1>Calculator</h1><br>
+                <form name="myform">
+                 Enter Number 1:  <input type="number" name="fst"><br><br>
+                 Enter Number 2:  <input type="number" name="snd"><br><br>
+                 <input type="button" name="" value="ADD" onclick="add()">
+                 <input type="button" name="" value="SUB" onclick="subtract()">
+                 <input type="button" name="" value="DIVIDE" onclick="divide()">
+                 <input type="button" name="" value="MULTIPLY" onclick="multiply()"><br><br>
+                 <input type="text" name="result">
+                </form>
+            </div>
+            
+        </div>
+        <div class="container"style="background-color:Azure;">
+            <h3>Enter Your EmailId To Validate</h3><br>
+            <input type="text" id="numb" onblur="Validate()">
+        </div>
+        
+    </body>
+</html>
